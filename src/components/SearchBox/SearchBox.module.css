@@ -1,0 +1,19 @@
+/* SearchBox.module.css */
+
+.searchBox {
+    margin-bottom: 20px;
+    padding: 10px;/* Простір між SearchBox та іншими елементами */
+}
+
+.label {
+    margin-bottom: 5px;
+}
+
+.input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Щоб padding не збільшував ширину елемента */
+    font-size: 16px;
+}
