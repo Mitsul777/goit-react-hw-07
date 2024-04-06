@@ -3,9 +3,9 @@ import { nanoid } from 'nanoid'
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import styles from './ContactForm.module.css';
-import { addContact } from '/src/redux/contactsSlice.js';
 import {useDispatch} from "react-redux";
-import {setNameFilter} from "/src/redux/filtersSlice.js";
+import {addContact} from "../../redux/contactsOps.js";
+import {toast} from "react-hot-toast";
 
 
 const initialValues = {
@@ -25,13 +25,12 @@ const ContactForm = () => {
         phone: Yup.string().matches(/^\d{3}-\d{2}-\d{2}$/, "Required") // Перевірка формату номера телефону
     });
 
-    const handleSubmit = (values, actions) => {
+    const handleSubmit = (values, { resetForm }) => {
         const { username, phone } = values;
-        dispatch(addContact({ name: username, number: phone }));
-        actions.resetForm();
-    };
-    const handleNameChange = (event) => {
-        dispatch(setNameFilter(event.target.value));
+        dispatch(addContact({ name: username, number: phone })).unwrap().then(()=>{
+            toast.success("Contact added")
+        }).catch();
+        resetForm();
     };
 
 

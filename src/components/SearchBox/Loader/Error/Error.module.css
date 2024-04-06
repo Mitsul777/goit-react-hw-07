@@ -1,0 +1,22 @@
+.error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid #ff6347; /* Красный цвет границы */
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #ffe4e1; /* Светло-красный цвет фона */
+}
+
+.error-icon {
+    font-size: 40px;
+    color: #ff6347; /* Красный цвет иконки */
+    margin-bottom: 10px;
+}
+
+.error-message {
+    font-size: 18px;
+    color: #ff6347; /* Красный цвет текста сообщения */
+    text-align: center;
+}
