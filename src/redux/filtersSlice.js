@@ -12,7 +12,6 @@ const filtersSlice = createSlice({
         setNameFilter: (state, action) => {
             state.name = action.payload;
         },
-        // інші редуктори фільтрів тут
     },
 });
 

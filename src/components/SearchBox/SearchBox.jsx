@@ -5,7 +5,6 @@ import {selectFilteredContacts, setNameFilter} from "../../redux/filtersSlice.js
 
 const SearchBox = () => {
     const dispatch = useDispatch();
-
     const value = useSelector(selectFilteredContacts)
 
     return (

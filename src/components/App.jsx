@@ -8,9 +8,10 @@ import {useEffect} from "react";
 import {fetchContacts} from "../redux/contactsOps.js";
 import {Toaster} from "react-hot-toast"
 import Error from "./SearchBox/Loader/Error/Error.jsx";
-import {selectError, selectLoading} from "../redux/contactsSlice.js";
+import {selectError, selectFilteredContacts, selectLoading} from "../redux/contactsSlice.js";
 
 function App() {
+    const contacts = useSelector(selectFilteredContacts)
     const dispatch = useDispatch();
     const loading = useSelector(selectLoading)
     const error = useSelector(selectError)
@@ -26,7 +27,7 @@ function App() {
                 <SearchBox />
                 {error && <Error message={errorMessage} />}
                 {loading && <Loader>Loading...</Loader>}
-                <ContactList />
+                <ContactList contacts={contacts} />
                 <Toaster/>
             </div>
 
