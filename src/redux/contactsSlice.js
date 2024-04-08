@@ -2,6 +2,7 @@ import {createSelector, createSlice} from '@reduxjs/toolkit';
 import {fetchContacts, deleteContact, addContact} from "./contactsOps.js";
 import {selectNameFilter} from "./filtersSlice.js";
 const contactsInitialState = {
+    name:"contacts",
     items: [],
     loading: false,
     error: null,

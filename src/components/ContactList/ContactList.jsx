@@ -1,24 +1,14 @@
 import Contact from "../Contact/Contact.jsx";
 import { useSelector } from 'react-redux';
-import {selectContans} from "../../redux/contactsSlice.js";
-import {selectNameFilter} from "../../redux/filtersSlice.js";
+import {selectFilteredContacts, } from "../../redux/contactsSlice.js";
 import styles from './ContactList.module.css'
 
 
 
-const getVisibleContacts = (filter, contacts) => {
-    if (filter === "") {
-        return contacts;
-    } else {
-        return contacts.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
-    }
-};
 
 const ContactList = () => {
-    const contacts = useSelector(selectContans);
-    const filter = useSelector(selectNameFilter);
-    const visibleContacts = getVisibleContacts(filter, contacts);
 
+    const visibleContacts = useSelector(selectFilteredContacts);
     return (
         <>
             <ul className={styles.ul}>
